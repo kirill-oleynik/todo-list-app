@@ -14,6 +14,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
+  gem 'bullet', '~> 6.1'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rubocop-rails', '~> 2.8'
 end
