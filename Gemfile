@@ -15,13 +15,13 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
   gem 'bullet', '~> 6.1'
+  gem 'factory_bot_rails', '~> 6.1'
+  gem 'faker', '~> 2.13'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rubocop-rails', '~> 2.8'
 end
 group :test do
   gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
-  gem 'factory_bot_rails', '~> 6.1'
-  gem 'faker', '~> 2.13'
   gem 'json_matchers', '~> 0.11.1'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
