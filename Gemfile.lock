@@ -248,6 +248,7 @@ DEPENDENCIES
   fasterer (~> 0.8.3)
   json_matchers (~> 0.11.1)
   jsonlint (~> 0.3.0)
+  jwt (~> 2.2, >= 2.2.2)
   jwt_sessions (~> 2.5, >= 2.5.2)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
