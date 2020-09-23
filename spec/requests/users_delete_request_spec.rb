@@ -2,6 +2,7 @@
 
 RSpec.describe 'Users', type: :request do
   describe 'DELETE /users/:id' do
+    before(:each) { stub_authorization }
     context 'when user can not be find' do
       before { delete api_user_path('iinvalid_id') }
       it 'returns 404 response status code' do

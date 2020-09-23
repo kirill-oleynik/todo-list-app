@@ -2,6 +2,7 @@
 
 RSpec.describe 'Users', type: :request do
   describe 'GET /users/:id' do
+    before(:each) { stub_authorization }
     context 'when user not exists' do
       before { get api_user_path('invalid_id') }
       it 'returns 404 response status code' do

@@ -2,6 +2,7 @@
 
 RSpec.describe 'Users', type: :request do
   describe 'PUT /users/:id' do
+    before(:each) { stub_authorization }
     context 'when user not exists' do
       let(:params) { attributes_for(:user) }
       before { put '/users/invalid', params: params }

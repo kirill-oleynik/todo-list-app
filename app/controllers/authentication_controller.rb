@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AuthenticationController < ApplicationController
+  skip_before_action :authorize_request
   def authenticate
     command = AuthenticateUser.call(email: auth_params[:email], password: auth_params[:password])
     if command.success?

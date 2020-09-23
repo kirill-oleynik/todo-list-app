@@ -2,6 +2,7 @@
 
 module API
   class UsersController < ApplicationController
+    skip_before_action :authorize_request, only: :create
     before_action :find_entity, only: %i[show update destroy]
     def create
       user = User.new(create_params)

@@ -9,15 +9,17 @@ RSpec.describe AuthenticationController do
       it 'returns 201 status code' do
         expect(response).to have_http_status(201)
       end
-      it 'returns access token' do
+      it 'returns access valid token' do
         expect(parsed_body).to have_key('access')
         expect(parsed_body['access']).to have_key('token')
         expect(parsed_body['access']).to have_key('expire')
+        expect { Date.parse(parsed_body.dig('access', 'expire')) }.to_not raise_error(Date::Error)
       end
-      it 'returns refresh token' do
+      it 'returns refresh valid token' do
         expect(parsed_body).to have_key('refresh')
         expect(parsed_body['refresh']).to have_key('token')
         expect(parsed_body['refresh']).to have_key('expire')
+        expect { Date.parse(parsed_body.dig('refresh', 'expire')) }.to_not raise_error(Date::Error)
       end
     end
     context 'when credentials are invalid' do
