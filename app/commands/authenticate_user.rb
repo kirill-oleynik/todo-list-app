@@ -5,8 +5,8 @@ class AuthenticateUser
   prepend SimpleCommand
 
   EXPIRE = {
-    access: 5.minutes.from_now.strftime('%Y/%m/%d %H:%M:%S'),
-    refresh: 1.month.from_now.strftime('%Y/%m/%d %H:%M:%S')
+    access: 5.minutes.from_now.to_json,
+    refresh: 1.month.from_now.to_json
   }.freeze
 
   def initialize(email:, password:)
