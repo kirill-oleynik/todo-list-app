@@ -13,6 +13,9 @@ Style/Documentation:
   Exclude:
     - 'app/serializers/*'
     - 'app/controllers/**/*'
+    - 'app/serializers/*'
+    - 'spec/support/request_helpers.rb'
+    - 'spec/support/*'
 Metrics/BlockLength:
   Enabled: true
   Exclude:

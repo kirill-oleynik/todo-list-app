@@ -210,6 +210,7 @@ GEM
     sexp_processor (4.15.1)
     shoulda-matchers (4.4.1)
       activesupport (>= 4.2.0)
+    simple_command (0.1.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -247,6 +248,7 @@ DEPENDENCIES
   fasterer (~> 0.8.3)
   json_matchers (~> 0.11.1)
   jsonlint (~> 0.3.0)
+  jwt (~> 2.2, >= 2.2.2)
   jwt_sessions (~> 2.5, >= 2.5.2)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
@@ -256,6 +258,7 @@ DEPENDENCIES
   rspec-rails (~> 4.0, >= 4.0.1)
   rubocop-rails (~> 2.8)
   shoulda-matchers (~> 4.4, >= 4.4.1)
+  simple_command (~> 0.1.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
