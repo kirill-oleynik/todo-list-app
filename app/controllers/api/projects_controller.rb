@@ -5,7 +5,11 @@ module API
     before_action :find_entity, only: %i[show update destroy]
 
     def show
-      render json: entity, status: 201
+      if entity.user == current_user
+        render json: entity, status: 200
+      else
+        head 422
+      end
     end
 
     def create
