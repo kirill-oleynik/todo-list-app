@@ -17,6 +17,18 @@ module API
       end
     end
 
+    def update
+      if entity.user == current_user
+        if entity.update(update_params)
+          render json: entity, status: 200
+        else
+          render json: entity.errors, status: 422
+        end
+      else
+        head 422
+      end
+    end
+
     def destroy
       if entity.user == current_user
         entity.destroy
@@ -30,6 +42,10 @@ module API
 
     def create_params
       params.require(:project).require(:title)
+    end
+
+    def update_params
+      params.require(:project).permit(:title)
     end
   end
 end
