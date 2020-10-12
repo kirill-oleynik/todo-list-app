@@ -3,6 +3,10 @@
 module API
   class ProjectsController < ApplicationController
     before_action :find_entity, only: %i[show update destroy]
+    def index
+      entities = current_user.projects.where('title LIKE ?', "%#{filter_params[:title]}%")
+      render json: { projects: entities }, status: 200
+    end
 
     def show
       if entity.user == current_user
@@ -43,6 +47,10 @@ module API
     end
 
     private
+
+    def filter_params
+      params.require(:projects).require(:filters).permit(:title)
+    end
 
     def create_params
       params.require(:project).require(:title)

@@ -1,9 +1,10 @@
 {
   "id": "file:/project.json",
   "type": "object",
-  "required": ["id", "title"],
+  "required": ["id", "title", "user_id"],
   "properties": {
     "id": {"type": "string"},
+    "user_id": {"type": "string"},
     "title": {"tpe": "string"}
   }
 }
