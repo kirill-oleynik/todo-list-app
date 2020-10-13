@@ -1,10 +1,15 @@
 {
   "id": "file:/project.json",
   "type": "object",
-  "required": ["id", "title", "user_id"],
+  "required": ["id", "title", "user_id", "tasks"],
   "properties": {
     "id": {"type": "string"},
     "user_id": {"type": "string"},
-    "title": {"tpe": "string"}
+    "title": {"tpe": "string"},
+    "tasks": {
+      "tpe": "array",
+      "items": { "ref": "file:/task.json" }
+
+    }
   }
 }
