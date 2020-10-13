@@ -15,5 +15,12 @@ RSpec.describe Task, type: :model do
         expect(task.user_id).to eq(task.project.user.id)
       end
     end
+    describe '#user' do
+      let(:task) { create(:task) }
+
+      it 'returns expected user' do
+        expect(task.user).to eq(task.project.user)
+      end
+    end
   end
 end
