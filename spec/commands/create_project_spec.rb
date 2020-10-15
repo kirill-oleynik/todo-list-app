@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CreateProject do
+RSpec.describe CreateProject, type: :command do
   describe 'when all params are valid' do
     let(:title) { attributes_for(:project)[:title] }
     let(:user) { create(:user) }

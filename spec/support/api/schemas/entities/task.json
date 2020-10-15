@@ -1,0 +1,12 @@
+{
+  "id": "file:/task.json",
+  "type": "object",
+  "required": ["id", "title", "done", "project_id", "user_id"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "done": { "type": "boolean" },
+    "project_id": { "type": "string" },
+    "user_id": { "type": "string" }
+  }
+}

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe AuthorizeRequest do
+RSpec.describe AuthorizeRequest, type: :command do
   describe 'when no auth header does not contain token' do
     let(:headers) { { foo: 'bar' } }
     let(:command) { described_class.new(headers) }
