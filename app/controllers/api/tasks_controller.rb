@@ -11,5 +11,20 @@ module API
         head 422
       end
     end
+
+    def create
+      command = CreateTask.call(current_user, task_params)
+      if command.success?
+        render json: command.result, status: 201
+      else
+        render json: command.errors, status: 422
+      end
+    end
+
+    private
+
+    def task_params
+      params.require(:task).permit(:project_id, :title, :done)
+    end
   end
 end
