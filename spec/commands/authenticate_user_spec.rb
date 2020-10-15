@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe AuthenticateUser do
+RSpec.describe AuthenticateUser, type: :command do
   describe 'when user exists and credentials are valid' do
     let!(:user) { create(:user) }
     let(:command) { described_class.new(email: user.email, password: user.password) }
