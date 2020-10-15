@@ -21,6 +21,15 @@ module API
       end
     end
 
+    def destroy
+      if current_user.tasks.include?(entity)
+        entity.destroy
+        head 200
+      else
+        head 422
+      end
+    end
+
     private
 
     def task_params
