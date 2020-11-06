@@ -21,6 +21,14 @@ module API
       end
     end
 
+    def destroy
+      if current_user.comments.include?(entity)
+        entity.destroy
+        head 200
+      else head 422
+      end
+    end
+
     private
 
     def create_params
