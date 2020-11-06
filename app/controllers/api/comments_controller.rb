@@ -11,5 +11,20 @@ module API
         head 422
       end
     end
+
+    def create
+      command = CreateComment.call(current_user, create_params)
+      if command.success?
+        render json: command.result, status: 201
+      else
+        render json: command.errors, status: 422
+      end
+    end
+
+    private
+
+    def create_params
+      params.require(:comment).permit(:title, :task_id)
+    end
   end
 end
