@@ -5,6 +5,7 @@ RSpec.describe Task, type: :model do
     before { build(:task) }
     it { should validate_presence_of(:title) }
     it { should belong_to(:project) }
+    it { should have_many(:comments) }
   end
 
   describe 'instance methods' do

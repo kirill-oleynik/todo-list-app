@@ -11,4 +11,8 @@ class User < ApplicationRecord
   def tasks
     projects.map(&:tasks).flatten
   end
+
+  def comments
+    tasks.map(&:comments).flatten
+  end
 end

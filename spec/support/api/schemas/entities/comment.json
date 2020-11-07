@@ -1,0 +1,11 @@
+{
+  "id": "file:/comment.json",
+  "type": "object",
+  "required": ["id", "title", "task_id", "user_id"],
+  "properties": {
+    "id": { "type": "string" },
+    "title": { "type": "string" },
+    "task_id": { "type": "string" },
+    "user_id": { "type": "string" }
+  }
+}
