@@ -21,6 +21,15 @@ module API
       end
     end
 
+    def update
+      command = UpdateComment.call(current_user, entity, update_params)
+      if command.success?
+        render json: command.result, status: 200
+      else
+        render json: command.errors, status: 422
+      end
+    end
+
     def destroy
       if current_user.comments.include?(entity)
         entity.destroy
@@ -33,6 +42,10 @@ module API
 
     def create_params
       params.require(:comment).permit(:title, :task_id)
+    end
+
+    def update_params
+      params.require(:comment).permit(:title)
     end
   end
 end
