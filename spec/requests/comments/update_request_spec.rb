@@ -9,7 +9,7 @@ RSpec.describe '[PUT] /comments/:id' do
   let(:params) do
     {
       comment: {
-        title: title,
+        title: title
       }
     }
   end
@@ -42,7 +42,7 @@ RSpec.describe '[PUT] /comments/:id' do
     let(:comment) { create(:comment) }
     let(:user) { comment.user }
     let(:comment_id) { comment.id }
-    let(:title) { String.new() }
+    let(:title) { String.new }
 
     it 'returns respons with 422 status code' do
       expect(response).to have_http_status(422)
