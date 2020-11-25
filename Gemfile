@@ -7,6 +7,8 @@ ruby '2.7.1'
 gem 'active_model_serializers', '~> 0.10.10'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'carrierwave', '~> 2.1'
+gem 'fog-aws', '~> 3.6', '>= 3.6.7'
 gem 'jwt', '~> 2.2', '>= 2.2.2'
 gem 'jwt_sessions', '~> 2.5', '>= 2.5.2'
 gem 'pg', '>= 0.18', '< 2.0'
