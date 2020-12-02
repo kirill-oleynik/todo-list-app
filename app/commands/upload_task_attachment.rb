@@ -1,0 +1,34 @@
+# frozen_string_literal: true
+
+# Wraps task attachment upload algorithm
+class UploadTaskAttachment
+  prepend SimpleCommand
+  def initialize(user, params = {})
+    @user = user
+    @task_id = params[:task_id]
+    @attachment = params[:attachment]
+  rescue NoMethodError
+    @task_id = @attachment = nil
+  end
+
+  def call
+    return unless task
+
+    task.attachment = attachment # attachment appears at s3
+    binding.pry # UNEXPECTED: task.attachment.url == nil
+  end
+
+  private
+
+  attr_reader :user, :task_id, :attachment
+
+  def task
+    @task = Task.find(task_id)
+  rescue ActiveRecord::RecordNotFound
+    errors.add(:task, 'NotFound')
+  end
+
+  def attachment_valid?
+    task.attachment.extension_whitelist.include? File.basename(attachment).split('.').last.downcase
+  end
+end
