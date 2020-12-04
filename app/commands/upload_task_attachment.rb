@@ -14,8 +14,12 @@ class UploadTaskAttachment
   def call
     return unless task
 
-    task.attachment = attachment # attachment appears at s3
-    binding.pry # UNEXPECTED: task.attachment.url == nil
+    if user.tasks.include? task
+      task.attachment = attachment
+      task&.attachment&.file&.exists? && task
+    else
+      errors.add(:user, 'NotAuthorized')
+    end
   end
 
   private
@@ -23,7 +27,7 @@ class UploadTaskAttachment
   attr_reader :user, :task_id, :attachment
 
   def task
-    @task = Task.find(task_id)
+    @task ||= Task.find(task_id)
   rescue ActiveRecord::RecordNotFound
     errors.add(:task, 'NotFound')
   end
