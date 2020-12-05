@@ -12,14 +12,10 @@ class UploadTaskAttachment
   end
 
   def call
-    return unless task
+    return unless [task, user_task_owner?, attachment, allowed_attachment?].all?
 
-    if user.tasks.include? task
-      task.attachment = attachment
-      task&.attachment&.file&.exists? && task
-    else
-      errors.add(:user, 'NotAuthorized')
-    end
+    task.attachment = attachment
+    task.attachment&.file&.exists? && task
   end
 
   private
@@ -32,7 +28,26 @@ class UploadTaskAttachment
     errors.add(:task, 'NotFound')
   end
 
-  def attachment_valid?
-    task.attachment.extension_whitelist.include? File.basename(attachment).split('.').last.downcase
+  def allowed_attachment?
+    return true if allowed_extensions.include? attachment_extension
+
+    errors.add(:file, 'NotSupported')
+  end
+
+  def allowed_extensions
+    AttachmentUploader.new.extension_whitelist
+  end
+
+  def attachment_extension
+    File.basename(attachment).split('.').last.downcase
+  end
+
+  def user_task_owner?
+    if user.tasks.include? task
+      true
+    else
+      errors.add(:user, 'NotAuthorized')
+      false
+    end
   end
 end

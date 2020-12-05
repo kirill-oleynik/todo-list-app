@@ -49,4 +49,20 @@ describe UploadTaskAttachment, tpe: :command do
       expect(command.errors[:user]).to include('NotAuthorized')
     end
   end
+  context 'when file type is not supported' do
+    let(:attachment) { invalid_attachment_file }
+    let(:task) { create(:task) }
+    let(:user) { task.user }
+    let(:task_id) { task.id }
+
+    it 'does not succeed' do
+      expect(command.success?).to equal(false)
+      expect(command.result).to equal(nil)
+    end
+
+    it 'provides expected errors' do
+      expect(command.errors).not_to be_empty
+      expect(command.errors[:file]).to include('NotSupported')
+    end
+  end
 end
