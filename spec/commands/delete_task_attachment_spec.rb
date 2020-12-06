@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe RemoveTaskAttachment, tpe: :command do
+describe DeleteTaskAttachment, tpe: :command do
   subject(:command) { described_class.new(user, task_id) }
   before do
     mock_fog_storage

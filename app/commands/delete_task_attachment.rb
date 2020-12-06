@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Wraps task attachment deletion algorithm
-class RemoveTaskAttachment
+class DeleteTaskAttachment
   prepend SimpleCommand
   def initialize(user, task_id)
     @user = user
