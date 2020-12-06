@@ -6,8 +6,18 @@
     "id": { "type": "string" },
     "title": { "type": "string" },
     "done": { "type": "boolean" },
-    "project_id": { "type": "string" },
-    "user_id": { "type": "string" },
+    "project_id": {
+      "type": "string",
+      "not": {
+        "type": "null"
+      }
+    },
+    "user_id": {
+      "type": "string",
+      "not": {
+        "type": "null"
+      }
+    },
     "attachment_url": {
       "type": "string",
     "type": "null"}
