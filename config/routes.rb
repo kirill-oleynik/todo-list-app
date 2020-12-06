@@ -7,5 +7,6 @@ Rails.application.routes.draw do
       list_only.resources :tasks
       list_only.resources :comments
     end
+    delete 'attachment', to: 'attachments#destroy' , as: 'attachment'
   end
 end
