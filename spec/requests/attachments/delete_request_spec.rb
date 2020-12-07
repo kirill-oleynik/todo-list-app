@@ -5,7 +5,7 @@ RSpec.describe '[DELETE] /attachment' do
     mock_fog_storage
     task.attachment = valid_attachment_file
     stub_authorization(user)
-    delete api_attachment_path, params: params
+    delete api_delete_attachment_path, params: params
   end
 
   let(:params) { { attachment: { task_id: task_id } } }
