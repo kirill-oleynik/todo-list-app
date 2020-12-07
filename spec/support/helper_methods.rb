@@ -13,10 +13,10 @@ module HelperMethods
   end
 
   def valid_attachment_file
-    File.open('spec/support/upload_example_file.txt', 'r')
+    Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, 'spec/support/upload_example_file.txt')))
   end
 
   def invalid_attachment_file
-    File.open('spec/support/upload_example_file.rb', 'r')
+    Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, 'spec/support/upload_example_file.rb')))
   end
 end
