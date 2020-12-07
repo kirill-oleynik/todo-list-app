@@ -8,5 +8,6 @@ Rails.application.routes.draw do
       list_only.resources :comments
     end
     delete 'attachment', to: 'attachments#destroy' , as: 'delete_attachment'
+    post 'attachment', to: 'attachments#create' , as: 'create_attachment'
   end
 end
