@@ -9,7 +9,8 @@ class DeleteTaskAttachment
   end
 
   def call
-    return unless [task, user_task_owner?].all?
+    return unless task
+    return unless user_task_owner?
 
     task.attachment&.remove!
     task

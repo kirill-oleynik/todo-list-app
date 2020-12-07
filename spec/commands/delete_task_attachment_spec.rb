@@ -32,6 +32,7 @@ describe DeleteTaskAttachment, tpe: :command do
 
     it 'provides expected errors' do
       expect(command.errors).not_to be_empty
+      expect(command.errors.length).to equal(1)
       expect(command.errors[:task]).to include('NotFound')
     end
   end
@@ -47,6 +48,7 @@ describe DeleteTaskAttachment, tpe: :command do
 
     it 'provides expected errors' do
       expect(command.errors).not_to be_empty
+      expect(command.errors.length).to equal(1)
       expect(command.errors[:user]).to include('NotAuthorized')
     end
   end
