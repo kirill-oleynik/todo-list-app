@@ -31,6 +31,7 @@ describe UploadTaskAttachment, tpe: :command do
     end
 
     it 'provides expected errors' do
+      expect(command.errors.length).to equal(1)
       expect(command.errors[:task]).to include('NotFound')
     end
   end

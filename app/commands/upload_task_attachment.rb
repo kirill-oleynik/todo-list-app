@@ -43,11 +43,9 @@ class UploadTaskAttachment
   end
 
   def user_task_owner?
-    if user.tasks.include? task
-      true
-    else
-      errors.add(:user, 'NotAuthorized')
-      false
-    end
+    return unless task.class == Task
+    return true if user.tasks.include? task
+
+    errors.add(:user, 'NotAuthorized')
   end
 end
