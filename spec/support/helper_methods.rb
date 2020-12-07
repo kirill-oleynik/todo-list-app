@@ -9,7 +9,7 @@ module HelperMethods
       region: ENV['AWS_S3_REGION']
     }
     connection = Fog::Storage.new(provider: 'AWS')
-    connection.directories.create(key: 'todo-lists-app')
+    connection.directories.create(key: ENV['AWS_S3_BUCKET'])
   end
 
   def valid_attachment_file
