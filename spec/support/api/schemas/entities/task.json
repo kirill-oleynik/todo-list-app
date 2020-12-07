@@ -18,6 +18,10 @@
         "type": "null"
       }
     },
+    "attachment_filename": {
+      "type": "string",
+      "type": "null"
+    },
     "attachment_url": {
       "type": "string",
     "type": "null"}

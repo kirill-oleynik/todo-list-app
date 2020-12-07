@@ -19,10 +19,11 @@ RSpec.describe '[POST] /attachment' do
       expect(response).to have_http_status(200)
     end
 
-    it 'returns task with uploaded attachment url' do
+    it 'returns task with uploaded attachment url & attachment filename' do
       expect(response).to match_json_schema('entities/task')
       expect(parsed_body['id']).to eq(task_id)
       expect(parsed_body['attachment_url']).to match(%r{https?://[\S]+})
+      expect(parsed_body['attachment_filename']).to eq('upload_example_file.txt')
     end
   end
 
