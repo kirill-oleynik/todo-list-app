@@ -6,10 +6,8 @@ describe DeleteTaskAttachment, tpe: :command do
     mock_fog_storage
     command.call
   end
-  let(:attachment) { valid_attachment_file }
-  before { task.attachment = attachment }
   context 'when all params are valid' do
-    let(:task) { create(:task) }
+    let(:task) { create(:task_with_attachment) }
     let(:user) { task.user }
     let(:task_id) { task.id }
 
