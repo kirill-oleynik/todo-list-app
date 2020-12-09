@@ -6,7 +6,7 @@ module API
       # create_params[:attachment].class == String
       command = UploadTaskAttachment.call(current_user, create_params)
       if command.success?
-        render json: command.result, status: 200
+        render json: command.result, status: 201
       else
         render json: command.errors, status: 422
       end

@@ -15,8 +15,8 @@ RSpec.describe '[POST] /attachment' do
     let(:task_id) { task.id }
     let(:attachment) { valid_attachment_file }
 
-    it 'returns response with status code 200' do
-      expect(response).to have_http_status(200)
+    it 'returns response with status code 201' do
+      expect(response).to have_http_status(201)
     end
 
     it 'returns task with uploaded attachment url & attachment filename' do
