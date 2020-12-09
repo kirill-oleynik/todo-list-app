@@ -4,15 +4,16 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :projects, dependent: :destroy
+  has_many :tasks
   validates :name, presence: true
   validates :email, presence: true,
                     uniqueness: true
 
   def tasks
-    projects.map(&:tasks).flatten
+    Task.where(project: projects.ids)
   end
 
   def comments
-    tasks.map(&:comments).flatten
+    Comment.where(task: tasks.ids)
   end
 end

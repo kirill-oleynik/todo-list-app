@@ -16,6 +16,7 @@ Style/Documentation:
     - 'app/serializers/*'
     - 'spec/support/request_helpers.rb'
     - 'spec/support/*'
+    - 'app/uploaders/*'
 Metrics/BlockLength:
   Enabled: true
   Exclude:

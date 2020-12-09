@@ -20,7 +20,6 @@ RSpec.describe User, type: :model do
       end
 
       it 'returns all user tasks for all projects' do
-        expect(user.tasks).to be_an_instance_of(Array)
         expect(user.tasks.length).to equal(10)
         expect(
           user.tasks.all? { |task| task.is_a?(Task) }
@@ -34,7 +33,6 @@ RSpec.describe User, type: :model do
         user.projects.first.tasks.first.comments.create(title: Faker::Lorem.sentence)
       end
       it 'returns all user tcomments' do
-        expect(user.comments).to be_an_instance_of(Array)
         expect(user.comments.length).to equal(2)
         user.comments.all? { |comment| comment.is_a?(Comment) }
       end
